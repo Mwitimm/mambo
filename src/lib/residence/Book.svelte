@@ -1,12 +1,15 @@
 <script>
-    const  threebed = {
+
+const  threebed = {
         price:35_583,
         status:true
     };
+ 
 const onBook = () => {
     if(threebed.status){
         threebed.status = false
         alert("Booked")
+        console.log(threebed.status)
     
     }
 else{
@@ -14,6 +17,9 @@ else{
 }
    
 }
+
+
+
 let checkInDate = null;
 let checkOutDate = null;
 
@@ -83,6 +89,16 @@ let checkOutDate = null;
 										<span class="select-arrow"></span>
 									</div>
 								</div>
+                                <div class="form-group">
+								<span class="form-label">House Type Type</span>
+								<select class="form-control" required>
+									<option value="" selected hidden>Select room type</option>
+									<option>One Bedroom</option>
+									<option>Two Bedroom</option>
+                                    <option>Three Bedroom</option>
+								</select>
+								<span class="select-arrow"></span>
+							</div>
 							</div>
 							<div class="form-btn">
 								<button class="submit-btn" type="submit">Book</button>
