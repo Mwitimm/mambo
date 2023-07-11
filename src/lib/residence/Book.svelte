@@ -1,21 +1,27 @@
 <script>
-  const houses = {
-    oneBedroom: {
+const houses = [
+    {
+      type: 'oneBedroom',
       price: 10_000,
       isBooked: false,
-      location: 'jkia'
+      location: 'jkia',
+      image: 'onebedroom.jpg'
     },
-    twoBedroom: {
+    {
+      type: 'twoBedroom',
       price: 20_000,
       isBooked: false,
-      location: 'jkia'
+      location: 'jkia',
+      image: 'twobedroom.jpg'
     },
-    threeBedroom: {
+    {
+      type: 'threeBedroom',
       price: 30_000,
       isBooked: false,
-      location: 'jkia'
+      location: 'jkia',
+      image: 'threebedroom.jpg'
     }
-  };
+  ];
   
   let details = {
     checkInDate: '',
@@ -26,16 +32,20 @@
     phonenumber: '',
     houseType: ''
   };
-  
+ $: oneBedStatus = houses[0].isBooked
   const Book = () => {
-    const selectedHouse = houses[details.houseType];
+    const selectedHouse = houses.find(house => house.type === details.houseType);
     if (selectedHouse) {
       if (selectedHouse.isBooked) {
         alert('House is already booked.');
       } else {
         selectedHouse.isBooked = true;
-        console.log(selectedHouse)
+        console.log(selectedHouse);
+
         alert('House has been booked successfully.');
+        console.log("all Houses",houses)
+        return [...houses, selectedHouse]
+     
       }
     } else {
       alert('Invalid house type.');
@@ -69,26 +79,29 @@ const  threebed = {
 
 </script>
 
-  <section class="house-cards">
-    {#each Object.entries(houses) as [type, house]}
-      <div class="card">
-        <img src="/" alt={type} />
-        <div class="card-details">
-          <h3>{type}</h3>
-          <p>Price: KES {house.price}/day</p>
-          {#if house.isBooked}
-            <div class="status occupied">
-              Occupied
-            </div>
-          {:else}
-            <div class="status available">
-              Available
-            </div>
-          {/if}
-        </div>
+
+
+
+<!--<section class="house-cards">
+  {#each houses as house}
+    <div class="card">
+      <img src="/" alt={house.type} />
+      <div class="card-details">
+        <h3>{house.type}</h3>
+        <p>Price: KES {house.price}/day</p>
+        {#if house.isBooked}
+          <div class="status occupied">
+            Occupied
+          </div>
+        {:else}
+          <div class="status available">
+            Available
+          </div>
+        {/if}
       </div>
-    {/each}
-  </section>
+    </div>
+  {/each}
+</section>-->
 
 
 
