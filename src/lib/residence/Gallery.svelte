@@ -7,7 +7,7 @@
         <p class="card-text">
             1 bedroom apartment
         </p>
-        <button><a href="#">Photo Visit</a></button>
+        <button><a href="/onebed">Photo Visit</a></button>
       </div>
       
     </div>
@@ -18,7 +18,7 @@
         <p class="card-text">
             2 bedroom apartment
         </p>
-        <button><a href="#">Photo Visit</a></button>
+        <button><a href="/twobed">Photo Visit</a></button>
       </div>
       
     </div>
@@ -29,7 +29,7 @@
         <p class="card-text">
             3 bedroom apartment
         </p>
-        <button><a href="#">Photo Visit</a></button>
+        <button><a href="/threebed">Photo Visit</a></button>
       </div>
      
     </div>
@@ -43,7 +43,7 @@
         place-items:center;
     }
     .card img{
-        height:65%;
+        height:60%;
         width: 100%;
       }
     .card .card-body{
