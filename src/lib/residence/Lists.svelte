@@ -3,7 +3,7 @@
 <div class="card mb-3" style="max-width: 100%;" id="Lists">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="https://i.ibb.co/sVVpLym/one-bed.webp" alt="one-bed" class="img-fluid rounded-start" style="margin-right: 1rem;">
+        <img src="https://i.ibb.co/Dp6sps1/1bed.jpg" alt="1bed"  class="img-fluid rounded-start" style="margin-right: 1rem;">
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -17,7 +17,7 @@
   <div class="card mb-3" style="max-width: 100%;" id="Lists">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="https://i.ibb.co/YNs6Qd7/two-bed.webp" alt="two-bed" class="img-fluid rounded-start" style="margin-right: 1rem;">
+        <img src="https://i.ibb.co/Jvd4zW5/2bed.jpg" alt="two-bed" class="img-fluid rounded-start" style="margin-right: 1rem;">
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -31,7 +31,7 @@
   <div class="card mb-3" style="max-width: 100%;" id="Lists">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="https://i.ibb.co/LRYpMyW/three-bed.webp" alt="three-bed" class="img-fluid rounded-start" style="margin-right: 1rem;">
+        <img src="https://i.ibb.co/CsMRQrT/3bed.jpg" alt="three-bed" class="img-fluid rounded-start" style="margin-right: 1rem;">
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -50,10 +50,11 @@
         border: 1px solid #ccc;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin:0;
       }
       .card img{
-        height: 500px;
-        width: 1000px;
+        height: 100%;
+        width: 100%;
       }
     
       .card-title {
