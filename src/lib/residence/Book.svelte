@@ -32,7 +32,7 @@ const houses = [
     phonenumber: '',
     houseType: ''
   };
- $: oneBedStatus = houses[0].isBooked
+
   const Book = () => {
     const selectedHouse = houses.find(house => house.type === details.houseType);
     if (selectedHouse) {
@@ -78,6 +78,11 @@ const  threebed = {
 
 
 </script>
+
+<section>
+  
+</section>
+
 
 
 
