@@ -1,5 +1,5 @@
 <script>
-  import Enav from "$lib/residence/Enav.svelte"
+  import Enav from "$lib/residence/onebed/Enav.svelte"
   import Grid from "$lib/residence/Grid.svelte"
   import Book from "$lib/residence/Book.svelte"
   import Ebook from "$lib/residence/Ebook.svelte"
