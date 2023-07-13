@@ -1,7 +1,7 @@
 
 <div class="card-group">
     <div class="card">
-      <img src="https://i.ibb.co/HqQ9XmX/1bed-apartment.webp" alt="1bed-apartment" class="card-img-top"/>
+      <img  src="https://i.ibb.co/LvmYSCP/1bedvisit.jpg" alt="1bedvisit"  class="card-img-top"/>
       <div class="card-body">
         <h5 class="card-title">01</h5>
         <p class="card-text">
@@ -12,7 +12,7 @@
       
     </div>
     <div class="card">
-      <img src="https://i.ibb.co/12K24ch/2bed-apartment.webp" alt="2bed-apartment" class="card-img-top">
+      <img src="https://i.ibb.co/pzC6KTX/2bedvisit.jpg" alt="2bedvisit" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">02</h5>
         <p class="card-text">
@@ -23,7 +23,7 @@
       
     </div>
     <div class="card">
-        <img src="https://i.ibb.co/QjXF0t7/3bed-apartment.jpg" alt="3bed-apartment" class="card-img-top">
+        <img src="https://i.ibb.co/6FHz5Mg/3bedvisit.jpg" alt="3bedvisit" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">03</h5>
         <p class="card-text">
@@ -43,7 +43,7 @@
         place-items:center;
     }
     .card img{
-        height:500px;
+        height:65%;
         width: 100%;
       }
     .card .card-body{
