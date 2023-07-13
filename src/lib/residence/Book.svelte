@@ -1,4 +1,5 @@
 <script>
+
 const houses = [
     {
       type: 'oneBedroom',
