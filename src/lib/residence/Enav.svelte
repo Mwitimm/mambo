@@ -14,10 +14,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 custom-nav">
           <li class="nav-item">
-            <a class="nav-link text-white" aria-current="page" href="#Hero">Home</a>
+            <div class="home">
+              <a class="nav-link text-white " aria-current="page" href="#Hero">Home</a>
+            </div>
+           
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#Lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-white home" href="#Lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Book Now
             </a>
             <ul class="dropdown-menu">
@@ -27,10 +30,10 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#Lists">Gallery</a>
+            <a class="nav-link text-white home" href="#Lists">Gallery</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#Contact">Contact Us</a>
+            <a class="nav-link text-white home" href="#Contact">Contact Us</a>
           </li>
         </ul>
         <div class="avatar">
@@ -78,11 +81,18 @@ nav .navbar-brand img:hover{
     cursor:pointer;
     transition: all 0.3s ease;
 }
-.custom-nav li a:hover{
+.custom-nav li  a:hover{
     border-bottom:1px solid #666;
     padding: 0;
     margin:0;
     font-size: 1.5rem;
+}
+.dropdown-menu li a:hover{
+  font-size:1.2rem;
+  background-color: none;
+
+
+
 }
 /* Media queries for small screens */
 @media (max-width: 767px) {
