@@ -44,7 +44,7 @@
                 </svg>
               </span>
             </h2>
-            <div id="collapsePP" class="accordion-collapse collapse" data-bs-parent="#accordionPayment" style="">
+            <div id="collapsePP" class="accordion-collapse collapse" data-bs-parent="#accordionPayment">
               <div class="accordion-body">
                 <div class="px-2 col-lg-6 mb-3">
                   <label class="form-label">Email address</label>
