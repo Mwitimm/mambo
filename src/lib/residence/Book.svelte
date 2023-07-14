@@ -1,5 +1,5 @@
 <script>
-
+import {goto} from "$app/navigation"
 const houses = [
     {
       type: 'oneBedroom',
@@ -31,7 +31,8 @@ const houses = [
     children: '',
     email: '',
     phonenumber: '',
-    houseType: ''
+    houseType: '',
+    name:""
   };
 
   const Book = () => {
@@ -45,6 +46,7 @@ const houses = [
 
         alert('House has been booked successfully.');
         console.log("all Houses",houses)
+        goto('/pay');
         return [...houses, selectedHouse]
      
       }
@@ -55,7 +57,7 @@ const houses = [
   
 
 
-const onBook = () => {
+/*const onBook = () => {
   if(threebed.status){
       threebed.status = false
       alert("Booked")
@@ -73,7 +75,7 @@ else{
 const  threebed = {
   price:35_583,
   status:true
-};
+};*/
 
 
 
@@ -118,12 +120,26 @@ const  threebed = {
               <div class="booking-form">
                   <div class="booking-bg">
                       <div class="form-header">
-                          <h2>Make your reservation</h2>
-                          <p>Unwind in Style: Reserve Your Spot in our Furnished 3-Bedroom Apartment Today!!! Located near JKIA Airport</p>
+                          <h2>Good To Know</h2>
+                          <p>
+                            Mambo Coffee Residences, 3Bdrm Aprt, All Ensuite, Close to JKI Airport with Free Trnsfr is a sustainable apartment in Nairobi, where guests can make the most of its outdoor swimming pool and garden.
+This property offers access to a terrace, free private parking and free WiFi. 
+The accommodation features a 24-hour front desk, free shuttle service and currency exchange for guests. Offering garden or city views, each unit comes with a kitchen, a satellite flat-screen TV and DVD player, desk, a washing machine and a private bathroom with shower and slippers. 
+An oven, a microwave and toaster are also available, as well as a coffee machine and a kettle. Additional in-room amenities include wine or champagne, fruits and chocolates or cookies. 
+A selection of options including warm dishes, fresh pastries and fruits is available for breakfast, and breakfast in the room is also available. Kenyatta International Conference Centre is 14 km from the apartment, while Nairobi National Museum is 16 km from the property. 
+The nearest airport is Jomo Kenyatta International Airport, 3 km from Mambo Coffee Residences, 3Bdrm Aprt, All Ensuite, Close to JKI Airport with Free Transfer.
+Mambo Coffee Residences, 3Bdrm Aprt, All Ensuite, Close to JKI Airport with Free Transfer has been welcoming Booking.com guests since 2022.
+                          </p>
                       </div>
                   </div>
                   <form on:submit|preventDefault={Book}>
                       <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                              <span class="form-label">Name</span>
+                              <input class="form-control" type="text" required bind:value={details.name} />
+                          </div>
+                      </div>
                           <div class="col-md-6">
                               <div class="form-group">
                                   <span class="form-label">Check In</span>
@@ -136,19 +152,20 @@ const  threebed = {
                                   <input class="form-control" type="date" required bind:value={details.checkOutDate}>
                               </div>
                           </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                                <span class="form-label">Adults</span>
+                                <select class="form-control" bind:value={details.adults}>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
+                                <span class="select-arrow"></span>
+                            </div>
+                        </div>
                       </div>
                       <div class="row">
-                          <div class="col-md-6">
-                              <div class="form-group">
-                                  <span class="form-label">Adults</span>
-                                  <select class="form-control" bind:value={details.adults}>
-                                      <option>1</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                  </select>
-                                  <span class="select-arrow"></span>
-                              </div>
-                          </div>
+                       
                           <div class="col-md-6">
                               <div class="form-group">
                                   <span class="form-label">Children</span>
@@ -163,7 +180,11 @@ const  threebed = {
                           <div class="col-md-6">
                               <div class="form-group">
                                   <span class="form-label">Phone Number</span>
-                                  <input class="form-control" type="text" required bind:value={details.phonenumber} />
+                                  <input class="form-control"  type="text"
+                                  id="amount"
+                                  inputmode="numeric"
+                                  pattern="[0-9]*"
+                                  maxlength="10"placeholder="eg 0712345678" required bind:value={details.phonenumber} />
                               </div>
                           </div>
                           <div class="col-md-6">
@@ -172,7 +193,7 @@ const  threebed = {
                                   <input class="form-control" type="email" required bind:value={details.email} />
                               </div>
                           </div>
-                          <div class="form-group">
+                          <div class="form-group col-md-6">
                               <span class="form-label">House Type</span>
                               <select class="form-control" required bind:value={details.houseType}>
                                   <option value="" selected hidden>Select room type</option>
