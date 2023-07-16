@@ -6,6 +6,7 @@ import {goto} from "$app/navigation"
 import mambo_residences from "./Houses.js"
 import customerDetails  from "./Details.js"
 
+let some_changes 
 
 let houses = [];
 let customer_details = {}
