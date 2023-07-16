@@ -18,7 +18,7 @@
       }
   
       const responseData = await response.json();
-      if (responseData) {
+      if (responseData.ResponseCode === "") {
         goto("/success")
       }
       console.log(responseData);

@@ -22,9 +22,11 @@ const mambo_residences = writable([
         price: 30_000,
         isBooked: false,
         location: 'jkia',
+
         image: "https://i.ibb.co/CsMRQrT/3bed.jpg"
       }
     ]
 )
 
 export default mambo_residences
+
