@@ -4,6 +4,9 @@
   import Book from "$lib/residence/Book.svelte"
   import Ebook from "$lib/residence/Ebook.svelte"
 
+
+ 
+
 </script>
 <section class="navigation">
   <Enav/>

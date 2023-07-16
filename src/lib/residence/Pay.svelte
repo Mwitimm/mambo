@@ -1,4 +1,41 @@
 <script>
+  import {goto} from "$app/navigation"
+
+  const initiateMpesaStkPush = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/process-payment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          // Add the payload data here if needed
+        })
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const responseData = await response.json();
+      if (responseData) {
+        goto("/success")
+      }
+      console.log(responseData);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+  
+
+  
+  
+
+  
+  
+  
+
+  
 
 </script>
 <div class="container">
@@ -76,7 +113,9 @@
                 Get emails about product updates and events. If you change your mind, you can unsubscribe at any time. <a href="#">Privacy Policy</a>
               </label>
             </div>
-            <button class="button">Proceed To Pay</button>
+            <button class="button" on:click={initiateMpesaStkPush}>Proceed To Pay</button>
+
+
           </div>
         </div>
       </div>

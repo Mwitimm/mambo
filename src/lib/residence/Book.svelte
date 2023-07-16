@@ -1,81 +1,56 @@
 <script>
+import { onMount, onDestroy } from 'svelte';
+import { writable, get } from 'svelte/store';
 import {goto} from "$app/navigation"
-const houses = [
-    {
-      type: 'oneBedroom',
-      price: 10_000,
-      isBooked: false,
-      location: 'jkia',
-      image: 'onebedroom.jpg'
-    },
-    {
-      type: 'twoBedroom',
-      price: 20_000,
-      isBooked: false,
-      location: 'jkia',
-      image: 'twobedroom.jpg'
-    },
-    {
-      type: 'threeBedroom',
-      price: 30_000,
-      isBooked: false,
-      location: 'jkia',
-      image: 'threebedroom.jpg'
-    }
-  ];
-  
-  let details = {
-    checkInDate: '',
-    checkOutDate: '',
-    adults: '',
-    children: '',
-    email: '',
-    phonenumber: '',
-    houseType: '',
-    name:""
-  };
 
-  const Book = () => {
-    const selectedHouse = houses.find(house => house.type === details.houseType);
-    if (selectedHouse) {
-      if (selectedHouse.isBooked) {
-        alert('House is already booked.');
-      } else {
-        selectedHouse.isBooked = true;
-        console.log(selectedHouse);
+import mambo_residences from "./Houses.js"
+import customerDetails  from "./Details.js"
 
-        alert('House has been booked successfully.');
-        console.log("all Houses",houses)
-        goto('/pay');
-        return [...houses, selectedHouse]
-     
-      }
+
+let houses = [];
+let customer_details = {}
+
+const getDetails = customerDetails.subscribe((data)=>{
+  customer_details = data
+})
+
+
+const unsubscribe = mambo_residences.subscribe(data => {
+  houses = data;
+  console.log(houses)
+});
+
+onDestroy(() => {
+  unsubscribe();
+  getDetails();
+});
+
+
+
+const Book = () => {
+  const selectedHouse = houses.find(house => house.type === customer_details.houseType);
+
+  if (selectedHouse) {
+    if (selectedHouse.isBooked) {
+      alert('House is already booked.');
     } else {
-      alert('Invalid house type.');
+      selectedHouse.isBooked = true;
+      console.log(selectedHouse);
+
+      alert('House has been booked successfully.');
+      console.log(customerDetails)
+      goto('/pay');
+
+      // Update the store with the modified house object
+     
     }
-  };
-  
-
-
-/*const onBook = () => {
-  if(threebed.status){
-      threebed.status = false
-      alert("Booked")
-      console.log(threebed.status)
-      console.log(details)
-  
+  } else {
+    alert('Invalid house type.');
   }
+};
+  
 
-else{
-  alert("House is already Booked")
-}
- 
-}
 
-const  threebed = {
-  price:35_583,
-  status:true
-};*/
 
 
 
@@ -90,10 +65,10 @@ const  threebed = {
 
 
 
-<!--<section class="house-cards">
+<section class="house-cards">
   {#each houses as house}
     <div class="card">
-      <img src="/" alt={house.type} />
+      <img src={house.image} alt={house.type} />
       <div class="card-details">
         <h3>{house.type}</h3>
         <p>Price: KES {house.price}/day</p>
@@ -109,7 +84,7 @@ const  threebed = {
       </div>
     </div>
   {/each}
-</section>-->
+</section>
 
 
 
@@ -137,25 +112,25 @@ Mambo Coffee Residences, 3Bdrm Aprt, All Ensuite, Close to JKI Airport with Free
                         <div class="col-md-6">
                           <div class="form-group">
                               <span class="form-label">Name</span>
-                              <input class="form-control" type="text" required bind:value={details.name} />
+                              <input class="form-control" type="text" required bind:value={customer_details.name} />
                           </div>
                       </div>
                           <div class="col-md-6">
                               <div class="form-group">
                                   <span class="form-label">Check In</span>
-                                  <input class="form-control" type="date" required bind:value={details.checkInDate}>
+                                  <input class="form-control" type="date" required bind:value={customer_details.checkInDate}>
                               </div>
                           </div>
                           <div class="col-md-6">
                               <div class="form-group">
                                   <span class="form-label">Check Out</span>
-                                  <input class="form-control" type="date" required bind:value={details.checkOutDate}>
+                                  <input class="form-control" type="date" required bind:value={customer_details.checkOutDate}>
                               </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
                                 <span class="form-label">Adults</span>
-                                <select class="form-control" bind:value={details.adults}>
+                                <select class="form-control" bind:value={customer_details.adults}>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -169,7 +144,7 @@ Mambo Coffee Residences, 3Bdrm Aprt, All Ensuite, Close to JKI Airport with Free
                           <div class="col-md-6">
                               <div class="form-group">
                                   <span class="form-label">Children</span>
-                                  <select class="form-control" bind:value={details.children}>
+                                  <select class="form-control" bind:value={customer_details.children}>
                                       <option>0</option>
                                       <option>1</option>
                                       <option>2</option>
@@ -184,18 +159,18 @@ Mambo Coffee Residences, 3Bdrm Aprt, All Ensuite, Close to JKI Airport with Free
                                   id="amount"
                                   inputmode="numeric"
                                   pattern="[0-9]*"
-                                  maxlength="10"placeholder="eg 0712345678" required bind:value={details.phonenumber} />
+                                  maxlength="10"placeholder="eg 0712345678" required bind:value={customer_details.phonenumber} />
                               </div>
                           </div>
                           <div class="col-md-6">
                               <div class="form-group">
                                   <span class="form-label">Email</span>
-                                  <input class="form-control" type="email" required bind:value={details.email} />
+                                  <input class="form-control" type="email" required bind:value={customer_details.email} />
                               </div>
                           </div>
                           <div class="form-group col-md-6">
                               <span class="form-label">House Type</span>
-                              <select class="form-control" required bind:value={details.houseType}>
+                              <select class="form-control" required bind:value={customer_details.houseType}>
                                   <option value="" selected hidden>Select room type</option>
                                   <option>oneBedroom</option>
                                   <option>twoBedroom</option>
@@ -217,6 +192,7 @@ Mambo Coffee Residences, 3Bdrm Aprt, All Ensuite, Close to JKI Airport with Free
 
 <style>
   .house-cards {
+    margin:1rem 0.5rem;
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -279,7 +255,7 @@ Mambo Coffee Residences, 3Bdrm Aprt, All Ensuite, Close to JKI Airport with Free
   
   .section {
       position: relative;
-      height: 100vh;
+      height: 101vh;
   }
   
   .section .section-center {

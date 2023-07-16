@@ -8,7 +8,7 @@ const residentials = writable([
         price: 10_000,
         isBooked: false,
         location: 'jkia',
-        image: 'https://i.ibb.co/Dp6sps1/1bed.jpg'
+        image: 'onebedroom.jpg'
       },
       {
         type: 'twoBedroom',
