@@ -6,11 +6,25 @@ import {goto} from "$app/navigation"
 import mambo_residences from "./Houses.js"
 import customerDetails  from "./Details.js"
 
+let some_changes 
+
+let houses = [];
+let customer_details = {}
+
+const getDetails = customerDetails.subscribe((data)=>{
+  customer_details = data
+})
 
 
-let houses = $mambo_residences
-let customer_details = $customerDetails
+const unsubscribe = mambo_residences.subscribe(data => {
+  houses = data;
+  console.log(houses)
+});
 
+onDestroy(() => {
+  unsubscribe();
+  getDetails();
+});
 
 
 
@@ -23,7 +37,6 @@ const Book = () => {
     } else {
       selectedHouse.isBooked = true;
       console.log(selectedHouse);
-      console.log(houses)
 
       alert('House has been booked successfully.');
       console.log(customerDetails)

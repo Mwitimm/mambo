@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <img src="https://i.ibb.co/Qj8QBz6/Logo.webp" alt="Logo" width="20%" height="15%">
-        <h5>Mambo Residence</h5>
+        <h5>Mambo Getaway</h5>
     </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,24 +19,11 @@
             </div>
            
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white home" href="#Lists" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Book Now
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/onebed">1 Bedroom</a></li>
-              <li><a class="dropdown-item" href="/twobed">2 Bedroom</a></li>
-              <li><a class="dropdown-item" href="/threebed">3 Bedroom</a></li>
-            </ul>
-          </li>
           <li class="nav-item">
-            <a class="nav-link text-white home" href="#Lists">Gallery</a>
+            <a class="nav-link text-white home" href="#Lists">Book Now</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white home" href="#Contact">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white home" href="/getaway" target="_blank">Mambo Getaway</a>
           </li>
         </ul>
         <div class="avatar">
